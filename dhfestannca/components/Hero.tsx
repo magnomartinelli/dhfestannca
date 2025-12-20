@@ -9,8 +9,9 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
   return (
     <section className="relative w-full pt-12 md:pt-20 pb-20 md:pb-28 flex flex-col items-center text-center px-4 overflow-hidden">
       <div className="inline-flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-pink-100/60 border border-pink-200 text-pink-600 text-[10px] md:text-sm font-bold tracking-widest uppercase mb-6 md:mb-10 animate-float-slow backdrop-blur-md">
-        <Sparkles size={16} className="text-yellow-500" />
+        <Heart size={16} className="text-pink-500 fill-pink-500" />
         Decorações que Contam Histórias
+        <Heart size={16} className="text-pink-500 fill-pink-500" />
       </div>
 
       <h1 className="text-4xl md:text-7xl lg:text-8xl font-black text-slate-900 leading-[1.2] md:leading-[1.1] mb-6 md:mb-8 font-display tracking-tight">
