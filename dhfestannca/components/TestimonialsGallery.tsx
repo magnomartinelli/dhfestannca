@@ -10,31 +10,36 @@ interface TestimonialsGalleryProps {
 const getDirectLink = (url: string) => {
   if (url.includes('drive.google.com')) {
     const id = url.split('/d/')[1]?.split('/')[0] || url.split('id=')[1]?.split('&')[0];
-    return `https://lh3.googleusercontent.com/d/${id}`;
+    return `https://drive.google.com/thumbnail?id=${id}&sz=s1000`;
   }
   return url;
 };
 
 const testimonialImages = [
   {
-    url: "https://drive.google.com/file/d/1WOGNRNgWPdWuKTJfIND6pcVaW2VCpMrT/view?usp=sharing",
-    client: "Cliente Especial",
-    highlight: "Mais um sonho realizado com sucesso!"
-  },
-  {
-    url: "https://drive.google.com/file/d/1jCdtEP-Ri8WdqxGli2mPvAF7mbEseavB/view?usp=sharing",
-    client: "Cliente Satisfeita",
-    highlight: "Encantada com cada detalhe da decoração."
-  },
-  {
-    url: "https://drive.google.com/file/d/1OUPRhO3EjCVLvIu7qgURlKxAxDOG5sqG/view?usp=sharing",
+    url: "https://drive.google.com/file/d/1OUPRhO3EjCVLvIu7qgURlKxAxDOG5sqG/view?usp=drive_link",
     client: "Feedback WhatsApp",
     highlight: "O projeto superou todas as expectativas."
   },
   {
-    url: "https://drive.google.com/file/d/1vB67l6gyLSdtCbcDVOEpt2Rlkcy8z0Fg/view?usp=sharing",
+    url: "https://drive.google.com/file/d/1jCdtEP-Ri8WdqxGli2mPvAF7mbEseavB/view?usp=drive_link",
+    client: "Cliente Satisfeita",
+    highlight: "Encantada com cada detalhe da decoração."
+  },
+  {
+    url: "https://drive.google.com/file/d/1vB67l6gyLSdtCbcDVOEpt2Rlkcy8z0Fg/view?usp=drive_link",
     client: "Mensagem Carinhosa",
     highlight: "Memórias eternizadas em um cenário mágico."
+  },
+  {
+    url: "https://drive.google.com/file/d/1WOGNRNgWPdWuKTJfIND6pcVaW2VCpMrT/view?usp=drive_link",
+    client: "Cliente Especial",
+    highlight: "Mais um sonho realizado com sucesso!"
+  },
+  {
+    url: "https://drive.google.com/file/d/170PD_w230J7L9E4dc89iEfFSd-GVy0uA/view?usp=drive_link",
+    client: "Cliente Feliz",
+    highlight: "Sua festa, nosso compromisso."
   }
 ];
 
