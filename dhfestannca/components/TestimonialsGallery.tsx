@@ -34,7 +34,7 @@ const testimonialImages = [
   {
     url: "https://drive.google.com/file/d/1WOGNRNgWPdWuKTJfIND6pcVaW2VCpMrT/view?usp=drive_link",
     client: "Cliente Especial",
-    highlight: "Mais um sonho realizado com sucesso!"
+    highlight: "Mais um sonho realizado com sucesso."
   },
   {
     url: "https://drive.google.com/file/d/170PD_w230J7L9E4dc89iEfFSd-GVy0uA/view?usp=drive_link",
