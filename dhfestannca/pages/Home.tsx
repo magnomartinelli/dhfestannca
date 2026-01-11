@@ -108,6 +108,14 @@ const Home: React.FC = () => {
                         >
                             Acesso Administrativo
                         </Link>
+                        <a
+                            href="https://martinellidigital.com.br"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-slate-300 hover:text-pink-400 text-[8px] md:text-[10px] font-medium tracking-widest uppercase transition-colors mt-2"
+                        >
+                            Desenvolvido por Martinelli Digital
+                        </a>
                     </div>
                 </footer>
 
