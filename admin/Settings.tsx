@@ -219,6 +219,23 @@ const SettingsScreen = () => {
                         </button>
                     </form>
                 </section>
+                {/* Logout Section */}
+                <section className="bg-white dark:bg-[#2d1b27] rounded-3xl p-6 shadow-sm border border-gray-100 dark:border-gray-800">
+                    <h3 className="text-lg font-bold text-[#181116] dark:text-white mb-6 flex items-center gap-2">
+                        <span className="material-symbols-outlined text-[#ee2bad]">logout</span>
+                        Sessão
+                    </h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
+                        Deseja sair do painel administrativo e voltar para o site principal?
+                    </p>
+                    <button
+                        onClick={() => window.location.href = '/'}
+                        className="w-full flex items-center justify-center gap-2 bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-300 font-bold py-3 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 active:scale-95 transition-all"
+                    >
+                        <span className="material-symbols-outlined">logout</span>
+                        Sair do Painel
+                    </button>
+                </section>
             </main>
         </AdminLayout>
     );

@@ -19,10 +19,8 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title, showBackButt
     }, []);
 
     const applyTheme = () => {
-        const savedTheme = localStorage.getItem('theme');
-        const isDark = savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
-
-        if (isDark) {
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
             document.documentElement.classList.add('dark');
         } else {
             document.documentElement.classList.remove('dark');
@@ -169,10 +167,6 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title, showBackButt
                     <Link to="/admin/settings" className={`flex flex-col items-center gap-1 p-2 ${isActive('/admin/settings') ? 'text-[#ee2bad]' : 'text-gray-400 dark:text-gray-500 hover:text-[#ee2bad]'}`}>
                         <span className={`material-symbols-outlined text-2xl ${isActive('/admin/settings') ? 'filled' : ''}`} style={isActive('/admin/settings') ? { fontVariationSettings: "'FILL' 1", color: '#ee2bad' } : {}}>settings</span>
                         <span className="text-[10px] font-bold">Ajustes</span>
-                    </Link>
-                    <Link to="/" className="flex flex-col items-center gap-1 p-2 text-gray-400 dark:text-gray-500 hover:text-[#ee2bad]">
-                        <span className="material-symbols-outlined text-2xl">logout</span>
-                        <span className="text-[10px] font-medium">Sair</span>
                     </Link>
                 </nav>
             </div>
