@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- String -->
+  <path d="M32 53 Q 32 60 28 62" stroke="#888" stroke-width="1.5" fill="none" />
+  <!-- Knot -->
+  <polygon points="32,53 29,56 35,56" fill="#ec4899"/>
+  <!-- Main Body -->
+  <ellipse cx="32" cy="28" rx="20" ry="24" fill="#ec4899" />
+  <!-- Shine -->
+  <ellipse cx="22" cy="18" rx="3" ry="6" transform="rotate(-30 22 18)" fill="white" opacity="0.3" />
+</svg>
