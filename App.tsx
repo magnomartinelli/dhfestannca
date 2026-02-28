@@ -12,6 +12,7 @@ import AdminNewParty from './admin/NewParty';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import ReloadPrompt from './components/ReloadPrompt';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 import AdminNewClient from './admin/NewClient';
 import AdminEditClient from './admin/EditClient';
 import AdminEditParty from './admin/EditParty';
@@ -21,6 +22,7 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <ReloadPrompt />
+      <FloatingWhatsApp />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

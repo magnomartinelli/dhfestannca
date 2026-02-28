@@ -1,0 +1,8 @@
+App.tsx
+admin/Login.tsx
+admin/Settings.tsx
+components/ActionButtons.tsx
+components/PortfolioGallery.tsx
+package-lock.json
+package.json
+pages/Home.tsx

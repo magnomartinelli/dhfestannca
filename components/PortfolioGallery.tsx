@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
 
-interface PortfolioGalleryProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 // Função para converter link do Drive em link direto de imagem
 const getDirectLink = (url: string) => {
@@ -17,119 +18,98 @@ const getDirectLink = (url: string) => {
 
 const portfolioImages = [
   {
-    url: "https://drive.google.com/file/d/1b08WVwH6e49QiOTtwFiD2kHILO5NlUBb/view?usp=sharing",
-    title: "Decoração Encantadora",
-    desc: "Cada cantinho pensado para surpreender e encantar seus convidados."
+    url: "/portfolio/portf1.webp",
   },
   {
-    url: "https://drive.google.com/file/d/1gklB2be5ys-abSh8f2j2dtka61CCCQlr/view?usp=sharing",
-    title: "Celebração Perfeita",
-    desc: "Transformamos seu sonho em uma realidade inesquecível com nossa decoração."
+    url: "/portfolio/portf2.webp",
+
   },
   {
-    url: "https://drive.google.com/file/d/1PHeHCS2H5aZDfslTyyDSbFLgewFf-Plj/view?usp=sharing",
-    title: "Decoração Exclusiva",
-    desc: "Confira os detalhes de nossas produções mais recentes."
+    url: "/portfolio/portf3.webp",
+
   },
   {
-    url: "https://drive.google.com/file/d/1sWTSiWQ9Z_RoM8kfVdar7HqY1USMWBKA/view?usp=sharing",
-    title: "Momentos Especiais",
-    desc: "Transformando sonhos em realidade com decorações únicas."
+    url: "/portfolio/portf4.webp",
+
   },
   {
-    url: "https://drive.google.com/file/d/1BovT6yE6N3UjBh5wm63YdqDF6jke-rZL/view?usp=sharing",
-    title: "Projeto Personalizado",
-    desc: "Um exemplo de como nossos arcos transformam o ambiente."
+    url: "/portfolio/portf5.webp",
+
   },
   {
-    url: "https://drive.google.com/file/d/1VS4HiIs4q5Rz5WclTczFWWai_gFQAzoG/view?usp=sharing",
-    title: "Mesa de Doces Mágica",
-    desc: "Cenários pensados em cada pequeno detalhe para encantar."
+    url: "/portfolio/portf6.webp",
+
   },
   {
-    url: "https://drive.google.com/file/d/1BYQ4rohhK-ZjqPplHQO9VLYu6L80j38C/view?usp=sharing",
-    title: "Painéis Temáticos",
-    desc: "Personalização total para que sua festa seja única."
+    url: "/portfolio/portf7.webp",
+
   },
-  {
-    url: "https://drive.google.com/file/d/1BS86QDmSn3hQW4urROHErVlN_kfWaM8T/view?usp=sharing",
-    title: "Eventos Inesquecíveis",
-    desc: "Onde o amor e a técnica se encontram para criar memórias."
-  }
 ];
 
-const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({ isOpen, onClose }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    if (isOpen) document.body.style.overflow = 'hidden';
-    else document.body.style.overflow = 'unset';
-    return () => { document.body.style.overflow = 'unset'; };
-  }, [isOpen]);
-
-  if (!isOpen) return null;
-
+const PortfolioGallery: React.FC = () => {
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 md:p-8">
-      <div className="absolute inset-0 bg-slate-900/90 backdrop-blur-sm transition-opacity" onClick={onClose}></div>
+    <div className="w-full max-w-7xl mx-auto px-4 py-12 md:py-24">
+      <div className="text-center mb-10 md:mb-16">
+        <span className="text-xs md:text-sm font-bold tracking-widest text-[#ee2bad] uppercase mb-3 block">Nosso Trabalho</span>
+        <h2 className="text-3xl md:text-5xl font-black text-slate-900 font-display tracking-tight">Portfólio dhFestannça</h2>
+        <p className="mt-4 text-slate-500 max-w-2xl mx-auto text-sm md:text-base font-medium">Deslize para ver detalhes das nossas decorações e como transformamos espaços em ambientes mágicos.</p>
+      </div>
 
-      <div className="relative w-full max-w-6xl bg-white rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row max-h-[95vh] animate-in fade-in zoom-in duration-300">
+      <div className="relative w-full bg-white rounded-2xl md:rounded-3xl shadow-xl border border-slate-100/50 overflow-hidden flex flex-col md:flex-row">
 
-        {/* Close Button Mobile */}
-        <button onClick={onClose} className="absolute top-4 right-4 z-50 p-2 bg-black/50 text-white rounded-full md:hidden">
-          <X size={20} />
-        </button>
+        {/* Carousel Area */}
+        <div className="relative w-full bg-slate-50 flex items-center justify-center p-2 md:p-4">
 
-        {/* Image Display */}
-        <div className="relative w-full md:w-2/3 h-[50vh] md:h-[80vh] bg-slate-100 flex items-center justify-center">
-          <img
-            src={getDirectLink(portfolioImages[currentIndex].url)}
-            alt={portfolioImages[currentIndex].title}
-            className="w-full h-full object-cover transition-all duration-500"
-          />
+          <Swiper
+            modules={[Navigation, Pagination, A11y, Autoplay]}
+            spaceBetween={20}
+            slidesPerView={1}
+            navigation={{
+              prevEl: '.swiper-button-prev-custom',
+              nextEl: '.swiper-button-next-custom',
+            }}
+            pagination={{ clickable: true, dynamicBullets: true }}
+            loop={true}
+            autoplay={{
+              delay: 3500,
+              disableOnInteraction: false,
+            }}
+            className="w-full h-full rounded-2xl overflow-hidden shadow-lg"
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+          >
+            {portfolioImages.map((img, idx) => (
+              <SwiperSlide key={idx} className="flex flex-col h-full bg-transparent rounded-2xl overflow-hidden group cursor-grab active:cursor-grabbing shadow-sm border border-black/5 dark:border-white/5">
+                {/* Image 1x1 Container Only */}
+                <div className="relative w-full aspect-square overflow-hidden bg-gray-200">
+                  <img
+                    src={getDirectLink(img.url)}
+                    alt={`Portfolio ${idx + 1}`}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  {/* Subtle inner shadow for depth */}
+                  <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-2xl"></div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-          <div className="absolute inset-x-4 top-1/2 -translate-y-1/2 flex justify-between pointer-events-none">
-            <button
-              onClick={(e) => { e.stopPropagation(); setCurrentIndex(prev => (prev - 1 + portfolioImages.length) % portfolioImages.length); }}
-              className="p-2 md:p-3 bg-white/20 hover:bg-white/90 text-white md:text-slate-800 rounded-full backdrop-blur-sm pointer-events-auto"
-            >
-              <ChevronLeft size={24} />
-            </button>
-            <button
-              onClick={(e) => { e.stopPropagation(); setCurrentIndex(prev => (prev + 1) % portfolioImages.length); }}
-              className="p-2 md:p-3 bg-white/20 hover:bg-white/90 text-white md:text-slate-800 rounded-full backdrop-blur-sm pointer-events-auto"
-            >
-              <ChevronRight size={24} />
-            </button>
-          </div>
-        </div>
-
-        {/* Text Details */}
-        <div className="w-full md:w-1/3 bg-white p-6 md:p-10 flex flex-col justify-between overflow-y-auto">
-          <div>
-            <div className="flex justify-between items-start mb-4 md:mb-6">
-              <span className="text-[10px] md:text-xs font-bold tracking-widest text-pink-500 uppercase">Portfólio dhFestannça</span>
-              <button onClick={onClose} className="hidden md:block p-1 text-slate-400 hover:text-slate-800"><X size={24} /></button>
-            </div>
-            <h3 className="text-xl md:text-2xl font-display font-bold text-slate-800 mb-2 md:mb-4">{portfolioImages[currentIndex].title}</h3>
-            <p className="text-sm md:text-base text-slate-500 font-medium leading-relaxed">{portfolioImages[currentIndex].desc}</p>
-          </div>
-
-          <div className="mt-6 md:mt-8">
-            <div className="text-xs text-slate-400 mb-3">{currentIndex + 1} de {portfolioImages.length}</div>
-            <div className="flex gap-2">
-              {portfolioImages.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentIndex(idx)}
-                  className={`h-1.5 rounded-full transition-all ${idx === currentIndex ? 'w-8 bg-pink-500' : 'w-2 bg-slate-200'}`}
-                />
-              ))}
-            </div>
-            <button onClick={onClose} className="w-full mt-8 py-4 rounded-xl bg-slate-900 text-white font-bold text-sm shadow-lg md:hidden">
-              Voltar para o site
+          {/* Custom Navigation */}
+          <div className="absolute inset-y-0 left-2 md:left-4 flex items-center z-10 pointer-events-none">
+            <button className="swiper-button-prev-custom p-2 md:p-3 bg-white hover:bg-white/90 text-slate-800 rounded-full shadow-lg transition-all pointer-events-auto active:scale-95 group">
+              <ChevronLeft size={24} className="group-hover:-translate-x-0.5 transition-transform" />
             </button>
           </div>
+          <div className="absolute inset-y-0 right-2 md:right-4 flex items-center z-10 pointer-events-none">
+            <button className="swiper-button-next-custom p-2 md:p-3 bg-white hover:bg-white/90 text-slate-800 rounded-full shadow-lg transition-all pointer-events-auto active:scale-95 group">
+              <ChevronRight size={24} className="group-hover:translate-x-0.5 transition-transform" />
+            </button>
+          </div>
+
         </div>
       </div>
     </div>

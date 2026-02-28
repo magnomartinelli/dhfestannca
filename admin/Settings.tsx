@@ -52,12 +52,6 @@ const SettingsScreen = () => {
 
             if (profileError) throw profileError;
 
-            if (profile.email !== user.email) {
-                const { error: authError } = await supabase.auth.updateUser({ email: profile.email });
-                if (authError) throw authError;
-                alert('E-mail atualizado! Verifique sua caixa de entrada para confirmar.');
-            }
-
             alert('Perfil atualizado com sucesso!');
         } catch (error: any) {
             alert('Erro ao atualizar perfil: ' + error.message);
@@ -167,13 +161,15 @@ const SettingsScreen = () => {
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-zinc-500 dark:text-zinc-400 mb-1.5 ml-2">E-mail</label>
+                            <label className="block text-sm font-medium text-zinc-500 dark:text-zinc-400 mb-1.5 ml-2">E-mail (Apenas Leitura)</label>
                             <input
                                 type="email"
-                                className="w-full bg-[#f8f6f7] dark:bg-black/20 border-none rounded-full py-3 px-5 text-zinc-900 dark:text-white focus:ring-2 focus:ring-[#ee2bad]"
+                                className="w-full bg-gray-200 dark:bg-white/5 border-none rounded-full py-3 px-5 text-gray-500 dark:text-gray-400 cursor-not-allowed"
                                 value={profile.email}
-                                onChange={(e) => setProfile({ ...profile, email: e.target.value })}
+                                disabled
+                                readOnly
                             />
+                            <p className="text-xs text-zinc-400 mt-2 ml-2">O e-mail de acesso não pode ser alterado por motivos de segurança.</p>
                         </div>
                         <button
                             type="submit"
