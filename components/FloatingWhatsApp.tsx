@@ -1,7 +1,15 @@
 import React from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
+import { useLocation } from 'react-router-dom';
 
 const FloatingWhatsApp: React.FC = () => {
+    const location = useLocation();
+
+    // Hide the WhatsApp button in the admin area
+    if (location.pathname.startsWith('/admin')) {
+        return null;
+    }
+
     const handleCTA = () => {
         const phoneNumber = "5521970753806";
         const message = encodeURIComponent("Olá! Estou no site e gostaria de tirar algumas dúvidas.");
