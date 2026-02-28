@@ -1,0 +1,20 @@
+{
+    "name": "dhFestannça Admin",
+    "short_name": "dhFestannça",
+    "start_url": "/admin/dashboard",
+    "display": "standalone",
+    "background_color": "#1a0b15",
+    "theme_color": "#ee2bad",
+    "icons": [
+        {
+            "src": "/vite.svg",
+            "sizes": "192x192",
+            "type": "image/svg+xml"
+        },
+        {
+            "src": "/vite.svg",
+            "sizes": "512x512",
+            "type": "image/svg+xml"
+        }
+    ]
+}

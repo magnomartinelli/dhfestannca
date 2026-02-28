@@ -10,7 +10,6 @@ import PromiseSection from '../components/PromiseSection';
 import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
-    const [isPortfolioOpen, setIsPortfolioOpen] = useState(false);
     const [isTestimonialsOpen, setIsTestimonialsOpen] = useState(false);
 
     // Lógica de Scroll Reveal para efeitos sutis ao rolar
@@ -61,6 +60,10 @@ const Home: React.FC = () => {
                     <ProfileSection />
                 </div>
 
+                <div className="reveal w-full bg-slate-50 border-y border-slate-200/50 mt-12 md:mt-20">
+                    <PortfolioGallery />
+                </div>
+
                 <section className="reveal container mx-auto px-4 py-20 md:py-32 flex flex-col items-center">
                     <div className="text-center mb-12 md:mb-20">
                         <h2 className="text-3xl md:text-6xl font-black text-slate-900 mb-4 md:mb-6 font-display tracking-tight px-4">O Próximo Passo da Mágica</h2>
@@ -68,7 +71,6 @@ const Home: React.FC = () => {
                     </div>
 
                     <ActionButtons
-                        onPortfolioClick={() => setIsPortfolioOpen(true)}
                         onTestimonialsClick={() => setIsTestimonialsOpen(true)}
                     />
                 </section>
@@ -103,7 +105,7 @@ const Home: React.FC = () => {
                             Voltar ao topo
                         </button>
                         <Link
-                            to="/admin"
+                            to="/admin/login"
                             className="text-slate-300 hover:text-slate-400 text-[10px] font-medium tracking-widest uppercase transition-colors"
                         >
                             Acesso Administrativo
@@ -122,7 +124,6 @@ const Home: React.FC = () => {
             </main>
 
             {/* Modais */}
-            <PortfolioGallery isOpen={isPortfolioOpen} onClose={() => setIsPortfolioOpen(false)} />
             <TestimonialsGallery isOpen={isTestimonialsOpen} onClose={() => setIsTestimonialsOpen(false)} />
         </div>
     );
